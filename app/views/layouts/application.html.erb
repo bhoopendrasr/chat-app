@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <% if notice.present? %>
+      <div class="alert alert-success" role="alert">
+        <strong>Success!</strong> <%= notice %>
+      </div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="alert alert-danger" role="alert">
+          <strong>Oh snap!</strong> <%= alert %>
+        </div>
+      <% end %>
+      <%= render partial: 'users/shared/navigation_bar' %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  setTimeout(function() {
+    $('.alert').hide('slow').delay(1000)
+  }, 2000);
+</script>

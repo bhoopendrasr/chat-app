@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  host:     localhost
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database:  development_chat_database
+
+
+test:
+  <<: *default
+  database: test_chat_database
