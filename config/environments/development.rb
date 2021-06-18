@@ -4,7 +4,9 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } if Rails.env == 'development'
+  config.action_mailer.default_url_options = 'https://loies-chat-app.herokuapp.com' if Rails.env == 'production'
   config.cache_classes = false
 
   # Do not eager load code on boot.
